@@ -49,7 +49,7 @@ b = tmp + b
 
 ​    \- 数据处理和编码模块: base64 / csv / html.parser / json / xml / ...
 
-# 4.python中的privated和protected
+# 4.python中的private和protected
 
 1、_xxx     不能用于’from module import *’ 以单下划线开头的表示的是protected类型的变量。即保护类型只能允许其本身与子类进行访问。
 
