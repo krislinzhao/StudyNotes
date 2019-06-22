@@ -149,8 +149,9 @@ AttributeError: 'Student' object has no attribute 'score'
 >>> g = GraduateStudent()
 >>> g.score = 9999
 ~~~
-
 除非在子类中也定义__slots__，这样，子类实例允许定义的属性就是自身的__slots__ 加上父类的__slots__。
+
+
 **注意：**
 ~~~python
 class Student(object):
