@@ -1,5 +1,6 @@
 # shelve介绍
 [官方文档](https://docs.python.org/3/library/shelve.html)
+
 shelve是python中一种存储结构化数据的模块，用法跟字典相似，以键值对的形式储存。
 windows下shelf文件是生成三个，两个可读一个不可读，linux下生成一个二进制文件，不可读
 ## 基本使用方法
@@ -100,7 +101,7 @@ yes
 5000
 ~~~
 ## 问题2
-shelf默认初始化存储数据之后是不进行会写，因此之后的数据变动不会被写入，因此只要指定writeback参数w为`True`即可修改数据
+shelf默认初始化存储数据之后是不进行会写，因此之后的数据变动不会被写入，因此只要指定writeback参数为`True`即可修改数据
 ~~~python
 import shelve
 with shelve.open('test3',writeback=True) as b:
