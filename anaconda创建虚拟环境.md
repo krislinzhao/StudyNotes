@@ -6,12 +6,12 @@ conda create -n my_env_name python=3.6
 
 激活虚拟环境
 ~~~
-source activate my_env_name
+conda/source activate my_env_name
 ~~~
 
 退出虚拟环境
 ~~~
-source deactivate
+conda/source deactivate
 ~~~
 
 # 查看Conde环境下所有的虚拟环境
