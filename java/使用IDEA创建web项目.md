@@ -36,6 +36,13 @@ maven web项目默认是没有java源代码目录的，所以需要手动创建�
 
 # 9.修改pom.xml
 修改pom.xml, 添加servletjar包依赖
+~~~xml
+<dependency>
+<groupId>javax.servlet</groupId>
+<artifactId>javax.servlet-api</artifactId>
+<version>3.1.0</version>
+</dependency>
+~~~
 ![](../images/IDEA创建web项目8.jpg)
 
 # 10.配置Tomcat
@@ -54,7 +61,24 @@ http://localhost:8080/j2ee_war/hello
 在新建Servlet步骤里，右键java源代码目录，无法看到Servlet选型，是因为.iml文件有问题。
 
 1. 在IDEA中打开.iml文件
-2. 添加如图所示的代码`<root ur1="file://$MODULE_DIR$/src/main/java"/>`
+2. 添加如图所示的代码
+~~~xml
+<?xml version="1.0" encoding="UTF-8"?>
+<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="web" name="Web">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/src/main/webapp/WEB-INF/web.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
+        </webroots>
+      </configuration>
+    </facet>
+  </component>
+</module>
+~~~
 3. 菜单-File->Close Project
 4. 重新打开项目，就能够看到新建Servlet步骤截图里的Servlet选项了
 ![](../images/IDEA创建web项目12.jpg)
