@@ -1,3 +1,13 @@
+[String源码学习](http://www.hollischuang.com/archives/99#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99)
+
+---
+[toc]
+---
+
+# String的原理
+![](https://krislin.oss-cn-beijing.aliyuncs.com/pictures/study-notes-images/String%E5%8E%9F%E7%90%86%E5%9B%BE.jpg)
+由`=`创建的String对象,会存放在堆的字符串常量池中
+
 # 比较方法
 1. equals()类的,返回的是boolean值,比较的是字符串的内容
 ~~~java
@@ -50,3 +60,63 @@ str.replaceFirst() // 替换匹配的第一个
 str.replaAll() // 替换匹配的全部
 ~~~
 
+# 如何反转倒置字符串
+1. 使用`StringBuffer(String string)`方法缓冲输入`String`，反转缓冲区，然后使用`toString()`方法将缓冲区转换成String。
+~~~java
+String reverse = new StringBuffer(string).reverse().toString();
+~~~
+2. 手动实现 先把String转化为charArray数组,再从数组的最后到第一个依次输出
+~~~java
+String str1 = "www.baidu.com";
+        char[] chars = str1.toCharArray();
+        for (int i=chars.length-1;i>=0;i--){
+            System.out.print(chars[i]);
+        }
+~~~
+
+# 如何在字符串中查找词组
+1. `indexOf()`方法在`String`对象中搜索单词，该方法返回字符串中的单词的位置索引(如果找到)值。 否则返回`-1`。
+    ~~~java
+    str.indexOf();
+    ~~~
+2. `contains()`方法在`String`对象中搜索单词,若有该单词返回`true`,若无则返回`false`
+    ~~~java
+    str.contains();
+    ~~~
+
+# 如何拆分/分割字符串
+`split(string)`方法将字符串分割成多个子字符串
+~~~java
+str.split(delimeter);
+~~~
+
+# 如何字符串转转换为大写
+使用`String`类的`toUpperCase()`方法将字符串的大小写更改为大写。
+~~~java
+str.toUpperCase();
+~~~
+
+# 如何匹配字符串区域
+`regionMatches()`方法确定两个字符串中的区域匹配。
+~~~java
+public class StringRegionMatch {
+    public static void main(String[] args) {
+        String first_str = "Welcome to IBM";
+        String second_str = "I work with IBM";
+
+        boolean match = first_str.regionMatches(11, second_str, 12, 3);
+        System.out.println("first_str[11->14] == " + "second_str[12 -> 15]: "
+                + match);
+    }
+}
+~~~
+以下是几个数字参数的说明：
+ * 11 - 是比较开始的源字符串中的索引号
+ * second_str - 是目标字符串
+ * 12是从目标字符串开始比较的索引号
+ * 3是要比较的字符数
+
+执行上面示例代码，得到以下结果 
+~~~shell
+first_str[11->14] == second_str[12 -> 15]: true
+~~~
