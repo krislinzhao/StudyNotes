@@ -1,0 +1,12 @@
+<!-- log4j日志文件管理包版本 -->
+<slf4j.version>1.7.7</slf4j.version>
+<log4j.version>1.2.17</log4j.version>
+<!-- junit版本号-->
+<junit.version>4.11</junit.version>
+<!-- mysql connector版本号-->
+<mysql.version>5.1.47</mysql.version>
+<!-- mybatis版本号 -->
+<mybatis.version>3.4.6</mybatis.version>
+<!-- spring版本号 -->
+<spring.version>5.1.5.RELEASE</spring.version>
+
