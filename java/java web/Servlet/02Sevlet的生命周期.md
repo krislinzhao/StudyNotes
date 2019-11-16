@@ -1,9 +1,11 @@
+![](../../../images/Servlet的生命周期.png)
 Web容器维护servlet实例的生命周期。下面来看看servlet的生命周期，主要分为以下几个步骤：
 1. 加载Servlet类，如：MyServlet.java。
 2. 创建Servlet实例。
 3. 调用Servlet类的init方法。
 4. 调用Servlet类的service方法。
 5. 调用Servlet类的destroy方法。
+6. 被回收 
    
 模型流程图如下所示 
 ![](../../../images/Servlet模型流程图.jpg)
@@ -19,18 +21,30 @@ Web容器在创建servlet实例后调用`init`方法一次。 `init`方法用于
 ~~~java
 public void init(ServletConfig config) throws ServletException
 ~~~
-Java
 **4. 调用service方法**
 每当接收到servlet的请求时，Web容器都会调用`service`方法。如果servlet未初始化，则遵循上述前三个步骤，然后调用`service`方法。 如果servlet被初始化，它调用`service`方法。 请注意，servlet仅初始化一次。 Servlet接口的`service`方法的语法如下：
 ~~~java
 public void service(ServletRequest request, ServletResponse response)   throws ServletException, IOException
 ~~~
-Java
 **5. 调用destroy方法**
 从服务中删除servlet实例之前，Web容器调用`destroy`方法。它使servlet有机会清理所有资源，例如内存，线程等。Servlet接口的`destroy`方法的语法如下：
 ~~~java
 public void destroy()
 ~~~
+在如下几种情况下，会调用destroy()
+1. 该Servlet所在的web应用重新启动
+在server.xml中配置该web应用的时候用到了
+ ~~~xml
+<Context path="/" docBase="e:\\project\\j2ee\\web" debug="0" reloadable="false" />
+ ~~~
+如果把 reloadable="false" 改为reloadable="true" 就表示有任何类发生的更新，web应用会自动重启当web应用自动重启的时候，destroy()方法就会被调用
+
+2. 关闭tomcat的时候 destroy()方法会被调用，但是这个一般都发生的很快，不易被发现。
+
+**6.被回收**
+当该Servlet被销毁后，就满足垃圾回收的条件了。 当下一次垃圾回收GC来临的时候，就有可能被回收。
+
+
 
 ## 架构图
 下图描述了一个典型的servlet生命周期场景。
