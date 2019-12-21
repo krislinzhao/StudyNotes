@@ -1,22 +1,29 @@
 # Spring学习笔记(9) Spring中的AOP
 ---
-
-- [Spring 的传统 AOP](#spring-的传统-aop)
-- [Spring 中的切面类型](#spring-中的切面类型)
-- [Spring 的 AOP 的开发](#spring-的-aop-的开发)
-    - [一.不带有切点的切面](#一不带有切点的切面)
-        - [项目目录](#项目目录)
-        - [1.导入相应的jar包](#1导入相应的jar包)
-        - [2.编写被代理的对象](#2编写被代理的对象)
-        - [3.编写增强代码](#3编写增强代码)
-        - [4.生成代理](#4生成代理)
-        - [5.测试](#5测试)
-    - [二.带有切点的切面](#二带有切点的切面)
-        - [项目结构](#项目结构)
-        - [1.创建被代理对象](#1创建被代理对象)
-        - [2.编写增强的类](#2编写增强的类)
-        - [3.生成代理](#3生成代理)
-        - [4.测试类](#4测试类)
+- [Spring 的传统 AOP](#spring-%e7%9a%84%e4%bc%a0%e7%bb%9f-aop)
+- [Spring 中的切面类型](#spring-%e4%b8%ad%e7%9a%84%e5%88%87%e9%9d%a2%e7%b1%bb%e5%9e%8b)
+- [Spring 的 AOP 的开发](#spring-%e7%9a%84-aop-%e7%9a%84%e5%bc%80%e5%8f%91)
+  - [一.不带有切点的切面](#%e4%b8%80%e4%b8%8d%e5%b8%a6%e6%9c%89%e5%88%87%e7%82%b9%e7%9a%84%e5%88%87%e9%9d%a2)
+    - [项目目录](#%e9%a1%b9%e7%9b%ae%e7%9b%ae%e5%bd%95)
+    - [1.导入相应的jar包](#1%e5%af%bc%e5%85%a5%e7%9b%b8%e5%ba%94%e7%9a%84jar%e5%8c%85)
+    - [2.编写被代理的对象](#2%e7%bc%96%e5%86%99%e8%a2%ab%e4%bb%a3%e7%90%86%e7%9a%84%e5%af%b9%e8%b1%a1)
+    - [3.编写增强代码](#3%e7%bc%96%e5%86%99%e5%a2%9e%e5%bc%ba%e4%bb%a3%e7%a0%81)
+    - [4.生成代理](#4%e7%94%9f%e6%88%90%e4%bb%a3%e7%90%86)
+    - [5.测试](#5%e6%b5%8b%e8%af%95)
+  - [二.带有切点的切面](#%e4%ba%8c%e5%b8%a6%e6%9c%89%e5%88%87%e7%82%b9%e7%9a%84%e5%88%87%e9%9d%a2)
+    - [项目结构](#%e9%a1%b9%e7%9b%ae%e7%bb%93%e6%9e%84)
+    - [1.创建被代理对象](#1%e5%88%9b%e5%bb%ba%e8%a2%ab%e4%bb%a3%e7%90%86%e5%af%b9%e8%b1%a1)
+    - [2.编写增强的类](#2%e7%bc%96%e5%86%99%e5%a2%9e%e5%bc%ba%e7%9a%84%e7%b1%bb)
+    - [3.生成代理](#3%e7%94%9f%e6%88%90%e4%bb%a3%e7%90%86)
+    - [4.测试类](#4%e6%b5%8b%e8%af%95%e7%b1%bb)
+- [自动代理](#%e8%87%aa%e5%8a%a8%e4%bb%a3%e7%90%86)
+  - [BeanNameAutoProxyCreator](#beannameautoproxycreator)
+    - [1.配置applicationContext.xml](#1%e9%85%8d%e7%bd%aeapplicationcontextxml)
+    - [2.测试](#2%e6%b5%8b%e8%af%95)
+  - [DefaultAdvisorAutoProxyCreator](#defaultadvisorautoproxycreator)
+    - [1.配置applicationContext.xml](#1%e9%85%8d%e7%bd%aeapplicationcontextxml-1)
+    - [2.测试](#2%e6%b5%8b%e8%af%95-1)
+  - [区分基于 `ProxyFattoryBean代理`与`自动代理`区别?](#%e5%8c%ba%e5%88%86%e5%9f%ba%e4%ba%8e-proxyfattorybean%e4%bb%a3%e7%90%86%e4%b8%8e%e8%87%aa%e5%8a%a8%e4%bb%a3%e7%90%86%e5%8c%ba%e5%88%ab)
 
 ---
 # Spring 的传统 AOP
@@ -356,4 +363,121 @@ public class OrderTest {
 ## BeanNameAutoProxyCreator
 按名称生成代理
 
-### 1.applicationContext.xml 的配置
+![](../../images/Spring中的AOP-3.jpg)
+
+### 1.配置applicationContext.xml
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- 通过spring配置文件生成代理:自动代理-->
+    <!--目标对象(被增强对象)-->
+    <bean id="orderDao" class="cn.edu.wtu.dao.OrderDao"></bean>
+    <!--目标对象(被增强对象)-->
+    <bean id="customerDao" class="cn.edu.wtu.dao.CustomerDao"></bean>
+
+    <!--定义增强-->
+    <bean id="beforeAdvice" class="cn.edu.wtu.MyBeforeAdvice"></bean>
+    <!--定义增强-->
+    <bean id="aroundAdvice" class="cn.edu.wtu.MyAroundMethod"></bean>
+
+
+    <!-- 自动代理:按名称的代理 基于后处理 Bean,后处理 Bean 不需要配置 ID -->
+    <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+        <!--以Dao结尾的bean-->
+        <property name="beanNames" value="*Dao"/>
+        <!--对目标对象采用前置增强-->
+        <property name="interceptorNames" value="beforeAdvice"/>
+    </bean>
+</beans>
+```
+
+### 2.测试
+- DaoTest
+```java
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = "classpath:applicationContext2.xml")
+public class DaoTest {
+    //不用引用生成代理对象,因为本身就是就是代理对象
+    @Resource(name = "customerDao")
+    private CustomerDao customerDao;
+    @Resource(name = "orderDao")
+    private OrderDao orderDao;
+
+    @Test
+    public void testDao(){
+        customerDao.find();
+        customerDao.delete();
+        customerDao.update();
+        customerDao.add();
+
+        orderDao.find();
+        orderDao.delete();
+        orderDao.update();
+        orderDao.add();
+    }
+}
+```
+
+## DefaultAdvisorAutoProxyCreator
+根据切面中定义的信息生成代理
+
+### 1.配置applicationContext.xml
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- 通过spring配置文件生成代理:自动代理-->
+    <!--目标对象(被增强对象)-->
+    <bean id="orderDao" class="cn.edu.wtu.dao.OrderDao"></bean>
+    <!--目标对象(被增强对象)-->
+    <bean id="customerDao" class="cn.edu.wtu.dao.CustomerDao"></bean>
+
+    <!--定义增强-->
+    <bean id="beforeAdvice" class="cn.edu.wtu.MyBeforeAdvice"></bean>
+    <!--定义增强-->
+    <bean id="aroundAdvice" class="cn.edu.wtu.MyAroundMethod"></bean>
+
+    <!--定义一个带切点的切面-->
+    <bean id="myPointcutAdvisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+        <!--如果想针对哪个 bean， 路径就写的详细一点 -->
+        <property name="pattern" value=".*add.*"/>
+        <property name="advice" ref="aroundAdvice"/>
+    </bean>
+
+    <!-- 自动生成代理 -->
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"></bean>
+</beans>
+```
+### 2.测试
+- DaoTest1
+```java
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = "classpath:applicationContext3.xml")
+public class DaoTest1 {
+    //不用引用生成代理对象,因为本身就是就是代理对象
+    @Resource(name = "customerDao")
+    private CustomerDao customerDao;
+    @Resource(name = "orderDao")
+    private OrderDao orderDao;
+
+    @Test
+    public void testDao(){
+        customerDao.find();
+        customerDao.delete();
+        customerDao.update();
+        customerDao.add();
+
+        orderDao.find();
+        orderDao.delete();
+        orderDao.update();
+        orderDao.add();
+    }
+}
+```
+
+## 区分基于 `ProxyFattoryBean代理`与`自动代理`区别?
+1. `ProxyFactoryBean`:先有被代理对象,将被代理对象传入到代理类中生成代理
+2. 自动代理基于后处理 Bean.在 Bean 的生成过程中,就产生了代理对象,把代理对象返回.生成 Bean 已经是代理对象.
