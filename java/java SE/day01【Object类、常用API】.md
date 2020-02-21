@@ -538,7 +538,7 @@ public class StringDemo {
 
 它的内部拥有一个数组用来存放字符串内容，进行字符串拼接时，直接在数组中加入新内容。StringBuilder会自动维护数组的扩容。原理如下图所示：(默认16字符空间，超过自动扩充)
 
-![06-StringBuilder的原理](https://raw.githubusercontent.com/krislinzhao/IMGcloud/master/img/StringBuilder原理.jpg)
+![06-StringBuilder的原理](![](https://raw.githubusercontent.com/krislinzhao/IMGcloud/master/img/StringBuilder原理.jpg))
 
 ## 4.3 构造方法
 
