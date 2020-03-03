@@ -1,7 +1,7 @@
 # Spring学习笔记(12)Spring的事务管理
 
 ---
-[toc]
+[TOC]
 
 ---
 

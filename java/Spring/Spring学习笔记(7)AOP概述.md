@@ -1,12 +1,7 @@
 # Spring学习笔记(7)AOP概述
 
 ---
-- [Spring学习笔记(7)AOP概述](#spring%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b07aop%e6%a6%82%e8%bf%b0)
-- [1.什么是AOP](#1%e4%bb%80%e4%b9%88%e6%98%afaop)
-- [2.SpringAOP思想](#2springaop%e6%80%9d%e6%83%b3)
-- [3.AOP 底层原理](#3aop-%e5%ba%95%e5%b1%82%e5%8e%9f%e7%90%86)
-- [4.Spring的AOP代理](#4spring%e7%9a%84aop%e4%bb%a3%e7%90%86)
-- [5.AOP 的术语](#5aop-%e7%9a%84%e6%9c%af%e8%af%ad)
+[TOC]
 
 ---
 
@@ -26,7 +21,7 @@ AOP 采用了`横向抽取`机制,取代了`纵向继承`体系中重复性的�
 就是代理机制
 
     *  动态代理:(JDK 中使用)
-  
+      
        * JDK 的动态代理,对实现了接口的类生成代理.
 
 # 4.Spring的AOP代理

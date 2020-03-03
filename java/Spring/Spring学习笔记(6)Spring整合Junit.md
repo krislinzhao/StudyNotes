@@ -1,12 +1,7 @@
 # Spring学习笔记（六）Spring整合Junit
 
 ---
-- [Spring学习笔记（六）Spring整合Junit](#spring%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0%e5%85%adspring%e6%95%b4%e5%90%88junit)
-- [1、Spring 整合 Junit 的配置过程](#1spring-%e6%95%b4%e5%90%88-junit-%e7%9a%84%e9%85%8d%e7%bd%ae%e8%bf%87%e7%a8%8b)
-- [2、项目结构](#2%e9%a1%b9%e7%9b%ae%e7%bb%93%e6%9e%84)
-- [3、实体类](#3%e5%ae%9e%e4%bd%93%e7%b1%bb)
-- [4、测试类](#4%e6%b5%8b%e8%af%95%e7%b1%bb)
-- [5、配置applicationContext.xml](#5%e9%85%8d%e7%bd%aeapplicationcontextxml)
+[TOC]
 
 ---
 

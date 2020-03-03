@@ -1,11 +1,7 @@
 # Spring学习笔记（五）基于注解的IOC案例
 ---
-- [1.项目目录结构](#1%e9%a1%b9%e7%9b%ae%e7%9b%ae%e5%bd%95%e7%bb%93%e6%9e%84)
-- [2.创建账户实体类](#2%e5%88%9b%e5%bb%ba%e8%b4%a6%e6%88%b7%e5%ae%9e%e4%bd%93%e7%b1%bb)
-- [3.创建接口](#3%e5%88%9b%e5%bb%ba%e6%8e%a5%e5%8f%a3)
-- [4.创建实现类](#4%e5%88%9b%e5%bb%ba%e5%ae%9e%e7%8e%b0%e7%b1%bb)
-- [5.创建测试类](#5%e5%88%9b%e5%bb%ba%e6%b5%8b%e8%af%95%e7%b1%bb)
-- [6.配置 applicationContext.xml](#6%e9%85%8d%e7%bd%ae-applicationcontextxml)
+[TOC]
+
 ---
 
 # 1.项目目录结构

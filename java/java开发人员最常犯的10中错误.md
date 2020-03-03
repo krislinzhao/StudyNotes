@@ -1,4 +1,13 @@
+
+
+---
+
+[TOC]
+
+---
+
 # 一、把数组转成ArrayList
+
 为了将数组转换为ArrayList，开发者经常会这样做：
 ~~~java
 List<String> list = Arrays.asList(arr);

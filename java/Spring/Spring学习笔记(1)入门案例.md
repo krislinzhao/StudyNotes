@@ -1,18 +1,7 @@
 # Spring学习笔记（一）入门案例
 
 ---
-- [Spring学习笔记（一）入门案例](#spring%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0%e4%b8%80%e5%85%a5%e9%97%a8%e6%a1%88%e4%be%8b)
-  - [1、实例](#1%e5%ae%9e%e4%be%8b)
-    - [1. 通过 Idea 创建 maven 项目](#1-%e9%80%9a%e8%bf%87-idea-%e5%88%9b%e5%bb%ba-maven-%e9%a1%b9%e7%9b%ae)
-    - [2. 配置 Spring 配置文件 applicationContext.xml](#2-%e9%85%8d%e7%bd%ae-spring-%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6-applicationcontextxml)
-    - [3. 编写接口及实现类](#3-%e7%bc%96%e5%86%99%e6%8e%a5%e5%8f%a3%e5%8f%8a%e5%ae%9e%e7%8e%b0%e7%b1%bb)
-    - [4. 编写测试类 Client](#4-%e7%bc%96%e5%86%99%e6%b5%8b%e8%af%95%e7%b1%bb-client)
-  - [2、知识点](#2%e7%9f%a5%e8%af%86%e7%82%b9)
-    - [1. ApplicationContext的三个常用实现类](#1-applicationcontext%e7%9a%84%e4%b8%89%e4%b8%aa%e5%b8%b8%e7%94%a8%e5%ae%9e%e7%8e%b0%e7%b1%bb)
-      - [ClassPathXmlApplicationContext](#classpathxmlapplicationcontext)
-      - [FileSyetemXmlApplicationContext](#filesyetemxmlapplicationcontext)
-      - [AnnotationConfigApplicationContext](#annotationconfigapplicationcontext)
-    - [2. 核心容器的两个接口引发出来的问题](#2-%e6%a0%b8%e5%bf%83%e5%ae%b9%e5%99%a8%e7%9a%84%e4%b8%a4%e4%b8%aa%e6%8e%a5%e5%8f%a3%e5%bc%95%e5%8f%91%e5%87%ba%e6%9d%a5%e7%9a%84%e9%97%ae%e9%a2%98)
+[TOC]
 
 ---
 

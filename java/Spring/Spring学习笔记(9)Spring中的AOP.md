@@ -1,29 +1,6 @@
 # Spring学习笔记(9) Spring中的AOP
 ---
-- [Spring 的传统 AOP](#spring-%e7%9a%84%e4%bc%a0%e7%bb%9f-aop)
-- [Spring 中的切面类型](#spring-%e4%b8%ad%e7%9a%84%e5%88%87%e9%9d%a2%e7%b1%bb%e5%9e%8b)
-- [Spring 的 AOP 的开发](#spring-%e7%9a%84-aop-%e7%9a%84%e5%bc%80%e5%8f%91)
-  - [一.不带有切点的切面](#%e4%b8%80%e4%b8%8d%e5%b8%a6%e6%9c%89%e5%88%87%e7%82%b9%e7%9a%84%e5%88%87%e9%9d%a2)
-    - [项目目录](#%e9%a1%b9%e7%9b%ae%e7%9b%ae%e5%bd%95)
-    - [1.导入相应的jar包](#1%e5%af%bc%e5%85%a5%e7%9b%b8%e5%ba%94%e7%9a%84jar%e5%8c%85)
-    - [2.编写被代理的对象](#2%e7%bc%96%e5%86%99%e8%a2%ab%e4%bb%a3%e7%90%86%e7%9a%84%e5%af%b9%e8%b1%a1)
-    - [3.编写增强代码](#3%e7%bc%96%e5%86%99%e5%a2%9e%e5%bc%ba%e4%bb%a3%e7%a0%81)
-    - [4.生成代理](#4%e7%94%9f%e6%88%90%e4%bb%a3%e7%90%86)
-    - [5.测试](#5%e6%b5%8b%e8%af%95)
-  - [二.带有切点的切面](#%e4%ba%8c%e5%b8%a6%e6%9c%89%e5%88%87%e7%82%b9%e7%9a%84%e5%88%87%e9%9d%a2)
-    - [项目结构](#%e9%a1%b9%e7%9b%ae%e7%bb%93%e6%9e%84)
-    - [1.创建被代理对象](#1%e5%88%9b%e5%bb%ba%e8%a2%ab%e4%bb%a3%e7%90%86%e5%af%b9%e8%b1%a1)
-    - [2.编写增强的类](#2%e7%bc%96%e5%86%99%e5%a2%9e%e5%bc%ba%e7%9a%84%e7%b1%bb)
-    - [3.生成代理](#3%e7%94%9f%e6%88%90%e4%bb%a3%e7%90%86)
-    - [4.测试类](#4%e6%b5%8b%e8%af%95%e7%b1%bb)
-- [自动代理](#%e8%87%aa%e5%8a%a8%e4%bb%a3%e7%90%86)
-  - [BeanNameAutoProxyCreator](#beannameautoproxycreator)
-    - [1.配置applicationContext.xml](#1%e9%85%8d%e7%bd%aeapplicationcontextxml)
-    - [2.测试](#2%e6%b5%8b%e8%af%95)
-  - [DefaultAdvisorAutoProxyCreator](#defaultadvisorautoproxycreator)
-    - [1.配置applicationContext.xml](#1%e9%85%8d%e7%bd%aeapplicationcontextxml-1)
-    - [2.测试](#2%e6%b5%8b%e8%af%95-1)
-  - [区分基于 `ProxyFattoryBean代理`与`自动代理`区别?](#%e5%8c%ba%e5%88%86%e5%9f%ba%e4%ba%8e-proxyfattorybean%e4%bb%a3%e7%90%86%e4%b8%8e%e8%87%aa%e5%8a%a8%e4%bb%a3%e7%90%86%e5%8c%ba%e5%88%ab)
+[TOC]
 
 ---
 # Spring 的传统 AOP

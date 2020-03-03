@@ -1,31 +1,10 @@
 # Spring学习笔记(10)Spring的AspectJ的AOP
 
-<!-- TOC -->
+---
 
-- [Spring学习笔记(10)Spring的AspectJ的AOP](#spring%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b010spring%e7%9a%84aspectj%e7%9a%84aop)
-- [在Spring中使用AspectJ实现AOP](#%e5%9c%a8spring%e4%b8%ad%e4%bd%bf%e7%94%a8aspectj%e5%ae%9e%e7%8e%b0aop)
-  - [AspectJ 表达式](#aspectj-%e8%a1%a8%e8%be%be%e5%bc%8f)
-  - [AspectJ 增强](#aspectj-%e5%a2%9e%e5%bc%ba)
-- [基于注解](#%e5%9f%ba%e4%ba%8e%e6%b3%a8%e8%a7%a3)
-  - [1.引入jar包](#1%e5%bc%95%e5%85%a5jar%e5%8c%85)
-  - [2.编写增强的类](#2%e7%bc%96%e5%86%99%e5%a2%9e%e5%bc%ba%e7%9a%84%e7%b1%bb)
-  - [3.使用AspectJ注解形式](#3%e4%bd%bf%e7%94%a8aspectj%e6%b3%a8%e8%a7%a3%e5%bd%a2%e5%bc%8f)
-  - [4.配置applicationContext.xml](#4%e9%85%8d%e7%bd%aeapplicationcontextxml)
-  - [5.测试](#5%e6%b5%8b%e8%af%95)
-- [基于xml](#%e5%9f%ba%e4%ba%8exml)
-  - [1.编写被增强的类](#1%e7%bc%96%e5%86%99%e8%a2%ab%e5%a2%9e%e5%bc%ba%e7%9a%84%e7%b1%bb)
-  - [2.编写增强的类](#2%e7%bc%96%e5%86%99%e5%a2%9e%e5%bc%ba%e7%9a%84%e7%b1%bb-1)
-  - [3配置applicationContext.xml](#3%e9%85%8d%e7%bd%aeapplicationcontextxml)
-  - [4.测试](#4%e6%b5%8b%e8%af%95)
-- [xml方式的AOP配置步骤](#xml%e6%96%b9%e5%bc%8f%e7%9a%84aop%e9%85%8d%e7%bd%ae%e6%ad%a5%e9%aa%a4)
-  - [1.配置被增强的类和通知(即增强方法)](#1%e9%85%8d%e7%bd%ae%e8%a2%ab%e5%a2%9e%e5%bc%ba%e7%9a%84%e7%b1%bb%e5%92%8c%e9%80%9a%e7%9f%a5%e5%8d%b3%e5%a2%9e%e5%bc%ba%e6%96%b9%e6%b3%95)
-  - [2.使用`aop:config`声明aop配置](#2%e4%bd%bf%e7%94%a8aopconfig%e5%a3%b0%e6%98%8eaop%e9%85%8d%e7%bd%ae)
-  - [3.使用`aop:aspect`配置切面](#3%e4%bd%bf%e7%94%a8aopaspect%e9%85%8d%e7%bd%ae%e5%88%87%e9%9d%a2)
-  - [4.使用`aop:pointcut`配置切入点表达式](#4%e4%bd%bf%e7%94%a8aoppointcut%e9%85%8d%e7%bd%ae%e5%88%87%e5%85%a5%e7%82%b9%e8%a1%a8%e8%be%be%e5%bc%8f)
-  - [5.使用`aop:xxx`配置对应的通知类型](#5%e4%bd%bf%e7%94%a8aopxxx%e9%85%8d%e7%bd%ae%e5%af%b9%e5%ba%94%e7%9a%84%e9%80%9a%e7%9f%a5%e7%b1%bb%e5%9e%8b)
-- [Advisor 和 Aspect 的区别?（都叫切面）](#advisor-%e5%92%8c-aspect-%e7%9a%84%e5%8c%ba%e5%88%ab%e9%83%bd%e5%8f%ab%e5%88%87%e9%9d%a2)
+[TOC]
 
-<!-- /TOC -->
+---
 
 # 在Spring中使用AspectJ实现AOP
 - AspectJ 是一个面向切面的框架， 它扩展了 Java 语言。 AspectJ 定义了 AOP 语法所以它有一个专门的编译器用来生成遵守 Java 字节编码规范的 Class 文件。
