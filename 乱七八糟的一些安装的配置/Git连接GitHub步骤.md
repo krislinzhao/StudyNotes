@@ -31,3 +31,4 @@ ssh -T git@github.com
 ```
 如果初次设置的话，会出现如下界面，输入yes 同意即可
 ![](https://raw.githubusercontent.com/krislinzhao/IMGclound/master/img/20200105113115.png)
+
