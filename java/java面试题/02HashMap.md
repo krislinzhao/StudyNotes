@@ -8,6 +8,8 @@
 
 数组中的元素我们称之为哈希桶，它的定义如下：
 
+
+
 ```java
 static class Node<K,V> implements Map.Entry<K,V> {
         final int hash;
