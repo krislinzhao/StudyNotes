@@ -113,54 +113,55 @@
         作用：等同于在` <bean> `标签中写一个 `<property>` 标签
 
         - `@Autowired`
+            
             - 作用：自动按照类型注入，只要容器中有唯一的一个 bean 对象类型和要注入的变量类型匹配，  就可以注入成功如果IOC容器中没有任何 bean 的类型和要注入的变量类型匹配，则报错
             - 出现位置：可以是变量上，也可以是方法上，
             - 细节：在使用注解注入时，set 方法就不是必须的了
         - `@Qualifier`
-            - 作用：在按照类型注入的基础上再按照名称注入，它在给类成员注入时不能单独使用，但是在给方法参数注入          时可以。
+            - 作用：在按照类型注入的基础上再按照名称注入，它在给类成员注入时不能单独使用，但是在给方法参数注入时可以。
+        - 属性：
+    
+            value : 用于指定注入的 bean 的id
+    
+    - `@Resource`
+    
+        - 作用：直接按照 bean 的 id 注入，可以直接使用
+    
             - 属性：
-
-                value : 用于指定注入的 bean 的  id
-
-        - `@Resource`
-
-            - 作用：直接按照 bean 的 id 注入，可以直接使用
-
-            - 属性：
-            name : 用于指定 bean 的 id
-
-            - 等同于`@Autowired+@Qualifier`
-
-        以上三个注入都只能注入其他 bean 类型的数据，而基本类型和 String 类型的数据无法使用上述注解实现。另外，集合类型的注入只能通过 xml 配置文件实现
-
+        name : 用于指定 bean 的 id
+    
+        - 等同于`@Autowired+@Qualifier`
+    
+    以上三个注入都只能注入其他 bean 类型的数据，而基本类型和 String 类型的数据无法使用上述注解实现。另外，集合类型的注入只能通过 xml 配置文件实现
+    
         - `@Value`
             - 作用：用于注入基本类型和 String 类型的数据
-            - 属性：
-
-                value : 用于指定数据的值，它可以使用 Spring 中 Spel (即spring的el表达式)
-
-                Spel 的写法：${表达式}
-
-    3. 用于改变范围的
-
-    作用：等同于在 `<bean>` 标签中使用 `scope `属性
-
+        - 属性：
+    
+            value : 用于指定数据的值，它可以使用 Spring 中 Spel (即spring的el表达式)
+    
+            Spel 的写法：${表达式}
+    
+3. 用于改变范围的
+    
+作用：等同于在 `<bean>` 标签中使用 `scope `属性
+    
     - `@Scope`
         - 作用：用于指定 bean 的作用范围
-        - 属性：
-
-            value : 指定范围的取值，同 xml 中值，常用为 singleton ,  prototype
-
-    4. 和生命周期相关（了解）
-
-    作用：等同于在`<bean>`标签中使用 `init-method `和 `destroy-method`
-
-    - `@PreDestory`
-
-        作用：用于指定销毁方法
-
-    - `@Postcontrust`
-
+    - 属性：
+    
+        value : 指定范围的取值，同 xml 中值，常用为 singleton ,  prototype
+    
+4. 和生命周期相关（了解）
+    
+作用：等同于在`<bean>`标签中使用 `init-method `和 `destroy-method`
+    
+- `@PreDestory`
+    
+    作用：用于指定销毁方法
+    
+- `@Postcontrust`
+    
         作用：用于指定初始化方法
 
 - 测试类：
