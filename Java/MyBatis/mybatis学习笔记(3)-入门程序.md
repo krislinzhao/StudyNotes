@@ -76,40 +76,44 @@ SET FOREIGN_KEY_CHECKS = 1;
 
 ## log4j.properties
 
-    # Global logging configuration
-    # 开发环境下，日志级别要设置成DEBUG或者ERROR
-    log4j.rootLogger=DEBUG, stdout
-    # Console output...
-    log4j.appender.stdout=org.apache.log4j.ConsoleAppender
-    log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
-    log4j.appender.stdout.layout.ConversionPattern=%5p [%t] - %m%n
+```properties
+# Global logging configuration
+# 开发环境下，日志级别要设置成DEBUG或者ERROR
+log4j.rootLogger=DEBUG, stdout
+# Console output...
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern=%5p [%t] - %m%n
+```
 
 ## SqlMapConfig.xml
 
-    <?xml version="1.0" encoding="UTF-8" ?>
-    <!DOCTYPE configuration
-            PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-            "http://mybatis.org/dtd/mybatis-3-config.dtd">
-    <configuration>
-        <!-- 和spring整合后 environments配置将废除-->
-        <environments default="development">
-            <environment id="development">
-                <!-- 使用jdbc事务管理-->
-                <transactionManager type="JDBC" />
-                <!-- 数据库连接池-->
-                <dataSource type="POOLED">
-                    <property name="driver" value="com.mysql.jdbc.Driver" />
-                    <property name="url" value="jdbc:mysql://localhost:3306/mybatis?characterEncoding=utf-8" />
-                    <property name="username" value="root" />
-                    <property name="password" value="" />
-                </dataSource>
-            </environment>
-        </environments>
-        <!--加载映射文件-->
-        <mappers>
-            <mapper resource="sqlmap/User.xml"/>
-        </mappers>
-    </configuration>
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 和spring整合后 environments配置将废除-->
+    <environments default="development">
+        <environment id="development">
+            <!-- 使用jdbc事务管理-->
+            <transactionManager type="JDBC" />
+            <!-- 数据库连接池-->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver" />
+                <property name="url" value="jdbc:mysql://localhost:3306/mybatis?characterEncoding=utf-8" />
+                <property name="username" value="root" />
+                <property name="password" value="" />
+            </dataSource>
+        </environment>
+    </environments>
+    <!--加载映射文件-->
+    <mappers>
+        <mapper resource="sqlmap/User.xml"/>
+    </mappers>
+</configuration>
+```
 
 # User.java
 ~~~java
@@ -169,79 +173,80 @@ public class User {
 
 # User.xml
 
-    <?xml version="1.0" encoding="UTF-8" ?>
-    <!DOCTYPE mapper
-            PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-            "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+    命名空间，作用为，对sql进行分类化管理，理解sql隔离，
+    注意：使用mapper代理方法开发，namespace有特殊作用
+-->
+<mapper namespace="test">
+    <!--在映射文件中配置sql-->
     <!--
-        命名空间，作用为:对sql进行分类化管理，理解sql隔离，
-        注意：使用mapper代理方法开发，namespace有特殊作用
+        findUserById
+        通过select执行数据库查询
+        id：标识映射文件的sql
+        将sql语句封装到mappedStatement对象中，所以将id称为Statement的id
+        #{}:表示一个占位符
+        parameterType:指定输入参数的类型
+        #{id}：其中的id表示接收输入的参数，参数的名称就是id，如果输入参数类型为简单类型，那么#{}中的参数可以任意，可以是value或其他
+        resultType：指定sql输出结果的所映射的Java对象类型，select指定的resultType表示将单条记录映射成的Java对象
     -->
-    <mapper namespace="test">
-        <!--在映射文件中配置sql-->
+    <select id="findUserById" parameterType="int" resultType="cn.edu.wtu.po.User">
+        select * from user where id=#{VALUE }
+    </select>
+
+
+
+
+    <!--
+        findUserByName
+        ${}:表示拼接字符串，将接收到的sql不加任何修饰拼接在sql语句里
+        使用${}拼接sql，可能会引起sql注入,一般不建议使用
+        ${value}：接收参数的内容，如果传入的的是简单类型，${}中只能使用value
+    -->
+    <select id="findUserByName" parameterType="java.lang.String" resultType="cn.edu.wtu.po.User">
+        select * from user WHERE username LIKE '%${value}%'
+    </select>
+
+
+
+    <!--
+        添加用户
+        parameterType:指定参数类型为pojo类型
+        #{}中指定pojo的属性名，接收到的pojo对象的属性值，mybatis通过OGNL获取对象的值
+        SELECT LAST_INSERT_ID():得到刚刚insert进去的记录的主键值，只适用于主键自增
+        非主键自的则需要使用uuid()来实现,表的id类型也得设置为tring(详见下面的注释)
+        keyProperty：将查询到的主键值设置到SparameterType指定的对象的哪个属性
+        order:SELECT LAST_INSERT_ID()执行顺序，相当于insert语句来说它的实现顺序
+
+    -->
+    <insert id="insertUser" parameterType="cn.edu.wtu.po.User">
+        <!--uuid()-->
         <!--
-            findUserById
-            通过select执行数据库查询
-            id：标识映射文件的sql
-            将sql语句封装到mappedStatement对象中，所以将id称为Statement的id
-            #{}:表示一个占位符
-            parameterType:指定输入参数的类型
-            #{id}：其中的id表示接收输入的参数，参数的名称就是id，如果输入参数类型为简单类型，那么#{}中的参数可以任意，可以是value或其他
-            resultType：指定sql输出结果的所映射的Java对象类型，select指定的resultType表示将单条记录映射成的Java对象
+            <selectKey keyProperty="id" order="AFTER" resultType="java.lang.String">
+              SELECT uuid()
+            </selectKey>
+            insert into user (id,username,birthday,sex,address) value(#{id},#{username},#{birthday},#{sex},#{address})
         -->
-        <select id="findUserById" parameterType="int" resultType="com.nuc.mybatis.po.User">
-            select * from user where id=#{VALUE }
-        </select>
-
-
-
-
-        <!--
-            findUserByName
-            ${}:表示拼接字符串，将接收到的sql不加任何修饰拼接在sql语句里
-            使用${}拼接sql，可能会引起sql注入,一般不建议使用
-            ${value}：接收参数的内容，如果传入的的是简单类型，${}中只能使用value
-        -->
-        <select id="findUserByName" parameterType="java.lang.String" resultType="com.nuc.mybatis.po.User">
-            select * from user WHERE username LIKE '%${value}%'
-        </select>
-
-
-
-
-        <!--
-            添加用户
-            parameterType:指定参数类型为pojo类型
-            #{}中指定pojo的属性名，接收到的pojo对象的属性值，mybatis通过OGNL获取对象的值
-            SELECT LAST_INSERT_ID():得到刚刚insert进去的记录的主键值，只适用于主键自增
-            非主键自的则需要使用uuid()来实现,表的id类型也得设置为tring(详见下面的注释)
-            keyProperty：将查询到的主键值设置到SparameterType指定的对象的哪个属性
-            order:SELECT LAST_INSERT_ID()执行顺序，相当于insert语句来说它的实现顺序
-
-        -->
-        <insert id="insertUser" parameterType="com.nuc.mybatis.po.User">
-            <!--uuid()-->
-            <!--
-                <selectKey keyProperty="id" order="AFTER" resultType="java.lang.String">
-                SELECT uuid()
-                </selectKey>
-                insert into user (id,username,birthday,sex,address) value(#{id},#{username},#{birthday},#{sex},#{address})
-            -->
         <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
             SELECT LAST_INSERT_ID()
         </selectKey>
         insert into user (username,birthday,sex,address) value(#{username},#{birthday},#{sex},#{address})
-        </insert>
+    </insert>
 
 
-        <delete id="deleteUser" parameterType="java.lang.Integer">
-            delete from user where id=#{id}
-        </delete>
+    <delete id="deleteUser" parameterType="java.lang.Integer">
+        delete from user where id=#{id}
+    </delete>
 
-        <update id="updateUser" parameterType="com.nuc.mybatis.po.User">
-            UPDATE user set username=#{username},birthday=#{birthday},sex=#{sex},address=#{address} where id=#{id}
-        </update>
-    </mapper>
+    <update id="updateUser" parameterType="cn.edu.wtu.po.User">
+        UPDATE user set username=#{username},birthday=#{birthday},sex=#{sex},address=#{address} where id=#{id}
+    </update>
+</mapper>
+```
 
 
 # MybatisFirst.java
