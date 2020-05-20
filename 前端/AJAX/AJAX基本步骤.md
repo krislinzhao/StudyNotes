@@ -1,5 +1,5 @@
 # AJAX请求
-![](../images/AJAX请求.png)
+![](../../images/AJAX请求.png)
 
 # 创建XHR
    创建XHR对象 XMLHttpRequest
