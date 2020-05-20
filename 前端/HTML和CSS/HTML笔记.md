@@ -1,12 +1,12 @@
 # [HTML元素网站](http://www.html5star.com/manual/html5label-meaning/)
 
 # 列表
-![](../images/HTML列表元素.png)
+![](../../images/HTML列表元素.png)
 
 # 表单
-![](../images/HTML表单元素1.png)
-![](../images/HTML表单元素2.png)
-![](../images/HTML表单元素3.png)
+![](../../images/HTML表单元素1.png)
+![](../../images/HTML表单元素2.png)
+![](../../images/HTML表单元素3.png)
 
 # 表格
 1. \<table>元素创建一个表。
