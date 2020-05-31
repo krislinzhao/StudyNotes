@@ -1,25 +1,10 @@
 # StudyNotes
 
-记录本人学习时的一些笔记
+---
 
-|          Ⅰ           |              Ⅱ               |             Ⅲ             |           Ⅳ            |  Ⅴ   |               Ⅵ               |
-| :------------------: | :--------------------------: | :-----------------------: | :--------------------: | :--: | :---------------------------: |
-| [Git:pencil2:](#Git) | [软件工程:cloud:](#软件工程) | [Python:couple:](#python) | [Java :coffee:](#java) | [Vue:memo:](#vue) | [前端:floppy_disk:](#前端) |
 
-## [Git](./Git)
 
-关于git的一些记录
+|          1          |              2              |              3              |              4              |              5              |              6              |              7              |              8              |             9             |             10             |             11             |           12           | 13                                                           | 14 |
+| :------------------: | :--------------------------: | :-----------------------: | :--------------------: | :--: | ----------------------------- | ----------------------------- | ----------------------------- | ----------------------------- | ----------------------------- | ----------------------------- | ----------------------------- | ----------------------------- | ----------------------------- |
+| [Git](#Git)![](https://img.shields.io/badge/%20-FFFFFF.svg?style=plastic&logo=git) |[Java](#java)![https://img.shields.io/badge/%20-007396.svg?style=plastic&logo=java](https://img.shields.io/badge/ -007396.svg?style=plastic&logo=java) |[Spring](#Spring)![https://img.shields.io/badge/%20-6DB33F.svg?style=plastic&logo=spring](https://img.shields.io/badge/ -6DB33F.svg?style=plastic&logo=spring) |[Springmvc](#SpringMVC)![](https://img.shields.io/badge/SpringMVC-6DB33F.svg?style=plastic) |[SpringBoot](#SpringBoot)![](https://img.shields.io/badge/SpringBoot-6DB33F.svg?style=plastic) |[Mybatis](#Mybatis)![](https://img.shields.io/badge/Mybatis-3776AB.svg?style=plastic) |[MySQL](#MySQL)![https://img.shields.io/badge/%20-FFFFFF.svg?style=plastic&logo=mysql](https://img.shields.io/badge/ -FFFFFF.svg?style=plastic&logo=mysql) |[Redis](#Redis)![https://img.shields.io/badge/%20-DC382D.svg?style=plastic&logo=redis](https://img.shields.io/badge/ -FFFFFF.svg?style=plastic&logo=redis) | [Vue](#vue)![https://img.shields.io/badge/%20-FFFFFF.svg?style=plastic&logo=vue.js](https://img.shields.io/badge/ -FFFFFF.svg?style=plastic&logo=vue.js) | [Docker](#Docker)![https://img.shields.io/badge/%20-FFFFFF.svg?style=plastic&logo=docker](https://img.shields.io/badge/ -FFFFFF.svg?style=plastic&logo=docker) | [Nginx](#Nginx)![https://img.shields.io/badge/%20-FFFFFF.svg?style=plastic&logo=nginx](https://img.shields.io/badge/ -FFFFFF.svg?style=plastic&logo=nginx) | [前端](#前端)![https://img.shields.io/badge/Front%20End-3776AB.svg?style=plastic](https://img.shields.io/badge/Front End-3776AB.svg?style=plastic) | [Python](#python)![](https://img.shields.io/badge/%20-FFFFFF.svg?style=plastic&logo=python) | [软件工程](#软件工程)![https://img.shields.io/badge/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-000000.svg?style=plastic](https://img.shields.io/badge/软件工程-000000.svg?style=plastic) |
 
-## [软件工程](./软件工程)
-
-## [Python](./Python)
-
-记录了python的基本语法，以及flask框架和DIGITS的学习。
-
-## [Java](./Java)
-
-### [java SE](./Java/java-SE)
-
-java的一些基本语法知识
-
-## [前端](./前端)
