@@ -1,3 +1,9 @@
+- [1. Keepalived+Nginx 高可用集群（主从模式）](#1-keepalivednginx-高可用集群主从模式)
+- [2. 配置高可用的准备工作](#2-配置高可用的准备工作)
+- [3. 在两台服务器上安装keepalived](#3-在两台服务器上安装keepalived)
+- [4. 完成高可用配置(主从配置)](#4-完成高可用配置主从配置)
+- [5. 最终测试](#5-最终测试)
+
 # 1. Keepalived+Nginx 高可用集群（主从模式）
 
 ![](https://gitee.com/krislin_zhao/IMGcloud/raw/master/img/20200521211609.png)
