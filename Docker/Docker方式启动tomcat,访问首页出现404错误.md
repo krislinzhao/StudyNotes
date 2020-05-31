@@ -1,3 +1,13 @@
+- [场景](#场景)
+- [初步解决](#初步解决)
+  - [1. 进入容器的tomcat目录](#1-进入容器的tomcat目录)
+  - [2. 进入webapps文件夹](#2-进入webapps文件夹)
+  - [3.把webapps.dist中的内容复制到webapps中](#3把webappsdist中的内容复制到webapps中)
+- [彻底解决](#彻底解决)
+  - [1. ctrl+p+q不退出容器的方式返回到宿主机目录下](#1-ctrlpq不退出容器的方式返回到宿主机目录下)
+  - [2. 使用docker commit命令将修改后的容器生成新的镜像](#2-使用docker-commit命令将修改后的容器生成新的镜像)
+  - [3.运行新的镜像](#3运行新的镜像)
+
 # 场景
 
 docker启动tomcat(版本是从阿里云上拉下的:9.0.35)时,访问tomcat首页时出现404错误
@@ -26,7 +36,7 @@ docker启动tomcat(版本是从阿里云上拉下的:9.0.35)时,访问tomcat首�
 
 ## 2. 使用docker commit命令将修改后的容器生成新的镜像
 
-### docker commit命令详解: 
+ docker commit命令详解: 
 
   * 1.作用：将运行着的容器映射成新的镜像
 
