@@ -46,3 +46,13 @@
 - [5. 重建索引](04.索引.md/#5-重建索引)
 - [6. 删除索引](04.索引.md/#6-删除索引)
 - [7. 查看索引和执行计划](04.索引.md/#7-查看索引和执行计划)
+
+# [05.数据备份与恢复](05.数据备份与恢复.md)
+- [1. mongoexport导出json/csv结构化数据](05.数据备份与恢复.md/#1-mongoexport导出jsoncsv结构化数据)
+- [2. mongoimport导入json/csv结构化数据](05.数据备份与恢复.md/#2-mongoimport导入jsoncsv结构化数据)
+- [3. mongodump导出二进制数据](05.数据备份与恢复.md/#3-mongodump导出二进制数据)
+- [4. mongorestore导入二进制数据](05.数据备份与恢复.md/#4-mongorestore导入二进制数据)
+
+# [06.mongoDB的其他](06.mongoDB的其他.md)
+- [1. 获取mongodb状态信息](06.mongoDB的其他.md/#1-获取mongodb状态信息)
+- [2. 非正常关闭mongodb导致无法启动的解决方法](06.mongoDB的其他.md/#2-非正常关闭mongodb导致无法启动的解决方法)
