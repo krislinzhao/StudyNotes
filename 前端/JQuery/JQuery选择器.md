@@ -661,5 +661,3 @@ $(function(){
   
 <button id="b1">点击隐藏</button>
 ~~~
-
-# 

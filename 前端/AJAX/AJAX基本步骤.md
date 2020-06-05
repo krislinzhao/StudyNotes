@@ -1,5 +1,5 @@
 # AJAX请求
-![](../../images/AJAX请求.png)
+![](https://gitee.com/krislin_zhao/IMGcloud/raw/master/img/20200605115127.png)
 
 # 创建XHR
    创建XHR对象 XMLHttpRequest
@@ -7,8 +7,8 @@
     AJAX就是通过它做到无刷新效果的
 ~~~javascript
 <script>
-var xmlhttp =new XMLHttpRequest();
-document.write(xmlhttp);
+	var xmlhttp =new XMLHttpRequest();
+	document.write(xmlhttp);
 </script>
 ~~~
 

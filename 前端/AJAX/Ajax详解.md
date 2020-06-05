@@ -4,7 +4,7 @@ Ajax（Asynchronous JavaScript and XML的缩写）是一种异步请求数据的
 
 **Ajax目的：提高用户体验，较少网络数据的传输量**
 
-![img](https://user-gold-cdn.xitu.io/2019/8/27/16cd0c2415db5cc8?imageslim)
+![](https://gitee.com/krislin_zhao/IMGcloud/raw/master/img/20200605115538.png)
 
 # 2. Ajax例子
 
@@ -119,7 +119,7 @@ xhr.send("fname=Henry&lname=Ford");  //post请求参数放在send里面，即请
 
 请求数据时的区别，详情见下面两张图：
 
-![img](https://user-gold-cdn.xitu.io/2019/8/27/16cd0c241943970f?imageslim)
+![](https://gitee.com/krislin_zhao/IMGcloud/raw/master/img/20200605115628.png)
 
 ![](https://gitee.com/krislin_zhao/IMGcloud/raw/master/img/20200521134958.png)
 
