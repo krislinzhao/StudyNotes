@@ -241,7 +241,7 @@ axios({
 }
 ```
 
-## 2.7 拦截器Interceptors
+## 2.6 拦截器Interceptors
 
 你可以在 请求 或者 返回 被 then 或者 catch 处理之前对他们进行拦截。
 
