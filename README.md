@@ -17,4 +17,4 @@
 | [Git](./Git/README.md) <br>![](https://img.shields.io/badge/%20-FFFFFF.svg?style=plastic&logo=git) | [Docker](./Docker/README.md)<br>![](https://img.shields.io/badge/%20-FFFFFF.svg?style=plastic&logo=docker) | [Nginx](./Nginx/README.md)<br>![](https://img.shields.io/badge/%20-FFFFFF.svg?style=plastic&logo=nginx) | [前端](./前端)<br>![](https://img.shields.io/badge/Front%20End-3776AB.svg?style=plastic) | [Python](./Python)<br>![](https://img.shields.io/badge/%20-FFFFFF.svg?style=plastic&logo=python) |
 
 
-以后明天坚持更新学习内容！
+**后面在个人博客上更新文章，[我的博客](https://krislinzhao.github.io/)**
